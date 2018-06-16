@@ -1,0 +1,2 @@
+F:\Asp.net MVC\Projects\NewsSystemDemo\NewsSystem.MVC\obj\Debug\NewsSystem.MVC.csprojResolveAssemblyReference.cache
+F:\Asp.net MVC\Projects\NewsSystemDemo\NewsSystem.MVC\obj\Debug\NewsSystem.MVC.csproj.CoreCompileInputs.cache

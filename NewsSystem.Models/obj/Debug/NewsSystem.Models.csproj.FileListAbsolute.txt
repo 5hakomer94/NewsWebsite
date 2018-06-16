@@ -1,0 +1,11 @@
+F:\Asp.net MVC\Projects\NewsSystemDemo\NewsSystem.Models\bin\Debug\NewsSystem.Models.dll.config
+F:\Asp.net MVC\Projects\NewsSystemDemo\NewsSystem.Models\bin\Debug\NewsSystem.Models.dll
+F:\Asp.net MVC\Projects\NewsSystemDemo\NewsSystem.Models\bin\Debug\NewsSystem.Models.pdb
+F:\Asp.net MVC\Projects\NewsSystemDemo\NewsSystem.Models\bin\Debug\EntityFramework.dll
+F:\Asp.net MVC\Projects\NewsSystemDemo\NewsSystem.Models\bin\Debug\EntityFramework.SqlServer.dll
+F:\Asp.net MVC\Projects\NewsSystemDemo\NewsSystem.Models\bin\Debug\EntityFramework.xml
+F:\Asp.net MVC\Projects\NewsSystemDemo\NewsSystem.Models\bin\Debug\EntityFramework.SqlServer.xml
+F:\Asp.net MVC\Projects\NewsSystemDemo\NewsSystem.Models\obj\Debug\NewsSystem.Models.csproj.CoreCompileInputs.cache
+F:\Asp.net MVC\Projects\NewsSystemDemo\NewsSystem.Models\obj\Debug\NewsSystem.Models.dll
+F:\Asp.net MVC\Projects\NewsSystemDemo\NewsSystem.Models\obj\Debug\NewsSystem.Models.pdb
+F:\Asp.net MVC\Projects\NewsSystemDemo\NewsSystem.Models\obj\Debug\NewsSystem.Models.csprojResolveAssemblyReference.cache
