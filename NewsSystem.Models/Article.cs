@@ -9,9 +9,11 @@ namespace NewsSystem.Models
     public class Article
     {
         public int ArticleId { get; set; }
+        public int CategoryId { get; set; }
         public virtual Category Categories { get; set; }
         public virtual ICollection<MediaFile> Media { get; set; }
         //TODO Create Relation between Article and MediaFile
+        public int MainUserId { get; set; }
         public virtual MainUser Users { get; set; }
         //TODO Create Relation between Article and MainUser 
     }

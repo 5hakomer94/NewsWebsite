@@ -19,9 +19,11 @@ namespace NewsSystem.Models
         public int FileSize { get; set; }
         public DateTime FileCreatedDate { get; set; }
         public DateTime FileModifiedDate { get; set; }
+        public int MainUserId { get; set; }
         public virtual MainUser Users { get; set; }
         public virtual ICollection<Library> Library { get; set; }
         public virtual ICollection<SocialNetworks> SocialNetworks { get; set; }
+        public int ArticleId { get; set; }
         public virtual Article Article { get; set; }
         //TODO Create Relation between Article and MediaFile 
         public virtual Menu Menu { get; set; }
