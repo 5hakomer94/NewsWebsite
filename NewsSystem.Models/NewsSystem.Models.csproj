@@ -48,6 +48,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AnnonymousUser.cs" />
+    <Compile Include="Article.cs" />
+    <Compile Include="Category.cs" />
     <Compile Include="Library.cs" />
     <Compile Include="MainUser.cs" />
     <Compile Include="MediaFile.cs" />

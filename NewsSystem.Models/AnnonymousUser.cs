@@ -27,5 +27,7 @@ namespace NewsSystem.Models
         public string Password { get; set; }
         [Display(Name = "تلفن")]
         public int phone { get; set; }
+        public virtual ICollection<Category> Categories { get; set; }
+        //TODO Create Relation between AnnonymousUser and Category 
     }
 }

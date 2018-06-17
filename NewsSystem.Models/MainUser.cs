@@ -34,5 +34,7 @@ namespace NewsSystem.Models
         public virtual ICollection<Roles> Roles { get; set; }
         public virtual UserSetting UserSetting { get; set; }
         public virtual ICollection<MediaFile> Media { get; set; }
+        public virtual ICollection<Article> Articles { get; set; }
+        //TODO Create Relation between Article and MainUser 
     }
 }

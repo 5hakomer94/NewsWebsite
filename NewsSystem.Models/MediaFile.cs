@@ -21,6 +21,8 @@ namespace NewsSystem.Models
         public virtual MainUser Users { get; set; }
         public virtual ICollection<Library> Library { get; set; }
         public virtual ICollection<SocialNetworks> SocialNetworks { get; set; }
+        public virtual Article Article { get; set; }
+        //TODO Create Relation between Article and MediaFile 
         public virtual Menu Menu { get; set; }
     }
 }
