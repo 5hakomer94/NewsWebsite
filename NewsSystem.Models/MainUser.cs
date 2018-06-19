@@ -11,7 +11,6 @@ namespace NewsSystem.Models
     [Table("Users" , Schema = "User")]
     public class MainUser
     {
-        [Column("UserId")]
         public int Id { get; set; }
         [MaxLength(100) , Required(ErrorMessage = "username is required")]
         [Display(Name = "نام کاربری")]

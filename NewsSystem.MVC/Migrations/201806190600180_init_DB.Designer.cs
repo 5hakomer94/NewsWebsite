@@ -7,13 +7,13 @@ namespace NewsSystem.MVC.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class init : IMigrationMetadata
+    public sealed partial class init_DB : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(init));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(init_DB));
         
         string IMigrationMetadata.Id
         {
-            get { return "201806181740124_init"; }
+            get { return "201806190600180_init_DB"; }
         }
         
         string IMigrationMetadata.Source

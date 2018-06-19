@@ -4,6 +4,7 @@ namespace NewsSystem.MVC.Models
     using System.Data.Entity;
     using System.Linq;
     using NewsSystem.Models;
+    using System.Data.Entity.ModelConfiguration.Conventions;
 
     public class Context : DbContext
     {
@@ -26,6 +27,13 @@ namespace NewsSystem.MVC.Models
         public virtual DbSet<NewsTag> NewsTags { get; set; }
         public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<SocialNetwork> SocialNetworks { get; set; }
-
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Event>()
+                .HasRequired<MainUser>(e => e.User)
+                .WithMany()
+                .WillCascadeOnDelete(false);
+            modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
+        }
     }
 }

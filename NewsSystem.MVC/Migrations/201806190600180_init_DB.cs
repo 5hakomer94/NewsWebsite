@@ -3,7 +3,7 @@ namespace NewsSystem.MVC.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class init : DbMigration
+    public partial class init_DB : DbMigration
     {
         public override void Up()
         {
@@ -83,7 +83,7 @@ namespace NewsSystem.MVC.Migrations
                 "User.Users",
                 c => new
                     {
-                        UserId = c.Int(nullable: false, identity: true),
+                        Id = c.Int(nullable: false, identity: true),
                         UserName = c.String(nullable: false, maxLength: 100),
                         FirstName = c.String(maxLength: 50),
                         LastName = c.String(maxLength: 50),
@@ -95,7 +95,7 @@ namespace NewsSystem.MVC.Migrations
                         UserEnable = c.Boolean(nullable: false),
                         LastLogOn = c.DateTime(nullable: false),
                     })
-                .PrimaryKey(t => t.UserId);
+                .PrimaryKey(t => t.Id);
             
             CreateTable(
                 "Event.Categories",
@@ -132,12 +132,15 @@ namespace NewsSystem.MVC.Migrations
                         CategoryName = c.String(),
                         SumShares = c.Int(nullable: false),
                         SumViews = c.Int(nullable: false),
+                        MainUser_Id = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("Event.Categories", t => t.CategoryId, cascadeDelete: true)
-                .ForeignKey("User.Users", t => t.AuthorId, cascadeDelete: true)
+                .ForeignKey("User.Users", t => t.AuthorId)
+                .ForeignKey("User.Users", t => t.MainUser_Id)
                 .Index(t => t.CategoryId)
-                .Index(t => t.AuthorId);
+                .Index(t => t.AuthorId)
+                .Index(t => t.MainUser_Id);
             
             CreateTable(
                 "Media.Media",
@@ -234,8 +237,8 @@ namespace NewsSystem.MVC.Migrations
                         Article_Id = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => new { t.MediaFile_Id, t.Article_Id })
-                .ForeignKey("Media.Media", t => t.MediaFile_Id, cascadeDelete: true)
-                .ForeignKey("News.Articles", t => t.Article_Id, cascadeDelete: true)
+                .ForeignKey("Media.Media", t => t.MediaFile_Id)
+                .ForeignKey("News.Articles", t => t.Article_Id)
                 .Index(t => t.MediaFile_Id)
                 .Index(t => t.Article_Id);
             
@@ -247,8 +250,8 @@ namespace NewsSystem.MVC.Migrations
                         Event_Id = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => new { t.MediaFile_Id, t.Event_Id })
-                .ForeignKey("Media.Media", t => t.MediaFile_Id, cascadeDelete: true)
-                .ForeignKey("Event.Events", t => t.Event_Id, cascadeDelete: true)
+                .ForeignKey("Media.Media", t => t.MediaFile_Id)
+                .ForeignKey("Event.Events", t => t.Event_Id)
                 .Index(t => t.MediaFile_Id)
                 .Index(t => t.Event_Id);
             
@@ -260,8 +263,8 @@ namespace NewsSystem.MVC.Migrations
                         MediaFile_Id = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => new { t.MediaLibrary_Id, t.MediaFile_Id })
-                .ForeignKey("Media.MediaLibrary", t => t.MediaLibrary_Id, cascadeDelete: true)
-                .ForeignKey("Media.Media", t => t.MediaFile_Id, cascadeDelete: true)
+                .ForeignKey("Media.MediaLibrary", t => t.MediaLibrary_Id)
+                .ForeignKey("Media.Media", t => t.MediaFile_Id)
                 .Index(t => t.MediaLibrary_Id)
                 .Index(t => t.MediaFile_Id);
             
@@ -273,8 +276,8 @@ namespace NewsSystem.MVC.Migrations
                         Event_Id = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => new { t.EventTag_Id, t.Event_Id })
-                .ForeignKey("dbo.EventTags", t => t.EventTag_Id, cascadeDelete: true)
-                .ForeignKey("Event.Events", t => t.Event_Id, cascadeDelete: true)
+                .ForeignKey("dbo.EventTags", t => t.EventTag_Id)
+                .ForeignKey("Event.Events", t => t.Event_Id)
                 .Index(t => t.EventTag_Id)
                 .Index(t => t.Event_Id);
             
@@ -286,8 +289,8 @@ namespace NewsSystem.MVC.Migrations
                         Article_Id = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => new { t.NewsTag_Id, t.Article_Id })
-                .ForeignKey("news.Tags", t => t.NewsTag_Id, cascadeDelete: true)
-                .ForeignKey("News.Articles", t => t.Article_Id, cascadeDelete: true)
+                .ForeignKey("news.Tags", t => t.NewsTag_Id)
+                .ForeignKey("News.Articles", t => t.Article_Id)
                 .Index(t => t.NewsTag_Id)
                 .Index(t => t.Article_Id);
             
@@ -299,8 +302,8 @@ namespace NewsSystem.MVC.Migrations
                         MainUser_Id = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => new { t.Role_Id, t.MainUser_Id })
-                .ForeignKey("User.Roles", t => t.Role_Id, cascadeDelete: true)
-                .ForeignKey("User.Users", t => t.MainUser_Id, cascadeDelete: true)
+                .ForeignKey("User.Roles", t => t.Role_Id)
+                .ForeignKey("User.Users", t => t.MainUser_Id)
                 .Index(t => t.Role_Id)
                 .Index(t => t.MainUser_Id);
             
@@ -316,6 +319,7 @@ namespace NewsSystem.MVC.Migrations
             DropForeignKey("dbo.NewsTagArticles", "Article_Id", "News.Articles");
             DropForeignKey("dbo.NewsTagArticles", "NewsTag_Id", "news.Tags");
             DropForeignKey("News.Categories", "CretorId", "User.Users");
+            DropForeignKey("Event.Events", "MainUser_Id", "User.Users");
             DropForeignKey("Event.Categories", "CreatorId", "User.Users");
             DropForeignKey("Event.Events", "AuthorId", "User.Users");
             DropForeignKey("dbo.EventTags", "CretorId", "User.Users");
@@ -351,6 +355,7 @@ namespace NewsSystem.MVC.Migrations
             DropIndex("dbo.EventTags", new[] { "CretorId" });
             DropIndex("Media.Media", new[] { "User_Id" });
             DropIndex("Media.Media", new[] { "SocialNetwork_Id" });
+            DropIndex("Event.Events", new[] { "MainUser_Id" });
             DropIndex("Event.Events", new[] { "AuthorId" });
             DropIndex("Event.Events", new[] { "CategoryId" });
             DropIndex("Event.Categories", new[] { "CreatorId" });

@@ -9,3 +9,13 @@ F:\Asp.net MVC\Projects\NewsSystemDemo\NewsSystem.Models\bin\Debug\EntityFramewo
 F:\Asp.net MVC\Projects\NewsSystemDemo\NewsSystem.Models\bin\Debug\EntityFramework.SqlServer.dll
 F:\Asp.net MVC\Projects\NewsSystemDemo\NewsSystem.Models\bin\Debug\EntityFramework.xml
 F:\Asp.net MVC\Projects\NewsSystemDemo\NewsSystem.Models\bin\Debug\EntityFramework.SqlServer.xml
+D:\mvc\Medisa\NewsSystemDemo\NewsSystem.Models\bin\Debug\NewsSystem.Models.dll.config
+D:\mvc\Medisa\NewsSystemDemo\NewsSystem.Models\bin\Debug\NewsSystem.Models.dll
+D:\mvc\Medisa\NewsSystemDemo\NewsSystem.Models\bin\Debug\NewsSystem.Models.pdb
+D:\mvc\Medisa\NewsSystemDemo\NewsSystem.Models\bin\Debug\EntityFramework.dll
+D:\mvc\Medisa\NewsSystemDemo\NewsSystem.Models\bin\Debug\EntityFramework.SqlServer.dll
+D:\mvc\Medisa\NewsSystemDemo\NewsSystem.Models\bin\Debug\EntityFramework.xml
+D:\mvc\Medisa\NewsSystemDemo\NewsSystem.Models\bin\Debug\EntityFramework.SqlServer.xml
+D:\mvc\Medisa\NewsSystemDemo\NewsSystem.Models\obj\Debug\NewsSystem.Models.csprojResolveAssemblyReference.cache
+D:\mvc\Medisa\NewsSystemDemo\NewsSystem.Models\obj\Debug\NewsSystem.Models.dll
+D:\mvc\Medisa\NewsSystemDemo\NewsSystem.Models\obj\Debug\NewsSystem.Models.pdb
