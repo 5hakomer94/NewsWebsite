@@ -1,31 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace NewsSystem.Models
 {
+    [Table("Media", Schema = "Media")]
     public class MediaFile
     {
-        public int FileId { get; set; }
-        public string FileName { get; set; }
-        public string FileTitle { get; set; }
-        public Byte[] FileContent { get; set; }
-        public string FileDescription { get; set; }
-        public string Extension { get; set; }
-        public string FileMimeType { get; set; }
+        [Column("MediaId")]
+        public int Id { get; set; }
         public string FilePath { get; set; }
-        public int FileSize { get; set; }
-        public DateTime FileCreatedDate { get; set; }
-        public DateTime FileModifiedDate { get; set; }
-        public int MainUserId { get; set; }
-        public virtual MainUser Users { get; set; }
-        public virtual ICollection<Library> Library { get; set; }
-        public virtual ICollection<SocialNetworks> SocialNetworks { get; set; }
-        public int ArticleId { get; set; }
-        public virtual Article Article { get; set; }
-        //TODO Create Relation between Article and MediaFile 
-        public virtual Menu Menu { get; set; }
+        public DateTime CreatedDate { get; set; }
+        public DateTime LastModified { get; set; }
+        //Relations - Navigation Properties
+        public virtual MainUser User { get; set; }
+        public virtual ICollection<MediaLibrary> Library { get; set; }
+        public virtual SocialNetwork SocialNetwork { get; set; }
+        public virtual ICollection<Article> Articles { get; set; }
+        public virtual ICollection<Event> Events { get; set; }
     }
 }

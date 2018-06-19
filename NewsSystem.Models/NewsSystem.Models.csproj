@@ -47,26 +47,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AnnonymousUser.cs" />
-    <Compile Include="Article.cs" />
-    <Compile Include="Category.cs" />
-    <Compile Include="Library.cs" />
+    <Compile Include="Event.Category.cs" />
+    <Compile Include="Event.Event.cs" />
+    <Compile Include="Event.Tag.cs" />
+    <Compile Include="MediaLibrary.cs" />
     <Compile Include="MainUser.cs" />
     <Compile Include="MediaFile.cs" />
     <Compile Include="Menu.cs" />
-    <Compile Include="NewsLetterSubscriber.cs" />
+    <Compile Include="AnonymousUser.cs" />
+    <Compile Include="News.Article.cs" />
+    <Compile Include="News.Category.cs" />
+    <Compile Include="News.Comment.cs" />
+    <Compile Include="News.Tag.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Roles.cs" />
+    <Compile Include="Role.cs" />
     <Compile Include="SocialNetworks.cs" />
-    <Compile Include="UserPicture.cs" />
-    <Compile Include="UserSetting.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

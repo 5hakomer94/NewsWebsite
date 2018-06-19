@@ -12,18 +12,20 @@ namespace NewsSystem.MVC.Models
         {
         }
 
-        public virtual DbSet<Library> MediaLibrary { get; set; }
-        public virtual DbSet<MediaFile> Media { get; set; }
+        public virtual DbSet<AnonymousUser> AnonymousUsers { get; set; }
+        public virtual DbSet<EventCategory> EventCategories { get; set; }
+        public virtual DbSet<Event> Events { get; set; }
+        public virtual DbSet<EventTag> EventTags { get; set; }
         public virtual DbSet<MainUser> Users { get; set; }
-        public virtual DbSet<UserSetting> UserProfile { get; set; }
-        public virtual DbSet<UserPicture> UserPicture { get; set; }
-        public virtual DbSet<Roles> Roles { get; set; }
-        public virtual DbSet<NewsLetterSubscriber> Subscriber { get; set; }
-        public virtual DbSet<AnnonymousUser> AnnonymousUser { get; set; }
-        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        //{
-        //    base.OnModelCreating(modelBuilder);
-        //}
+        public virtual DbSet<MediaFile> Files { get; set; }
+        public virtual DbSet<MediaLibrary> MediaLibraries { get; set; }
+        public virtual DbSet<Menu> Menu { get; set; }
+        public virtual DbSet<Article> Articles { get; set; }
+        public virtual DbSet<NewsCategory> NewsCategories { get; set; }
+        public virtual DbSet<Comment> Comments { get; set; }
+        public virtual DbSet<NewsTag> NewsTags { get; set; }
+        public virtual DbSet<Role> Roles { get; set; }
+        public virtual DbSet<SocialNetwork> SocialNetworks { get; set; }
 
     }
 }
