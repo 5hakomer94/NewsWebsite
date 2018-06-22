@@ -15,7 +15,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>NewsSystem.MVC</RootNamespace>
     <AssemblyName>NewsSystem.MVC</AssemblyName>
-    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
@@ -57,6 +57,9 @@
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -121,9 +124,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.ApplicationInsights">
       <HintPath>..\packages\Microsoft.ApplicationInsights.2.2.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
     </Reference>
@@ -150,7 +150,9 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\FileController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -158,31 +160,148 @@
     <Compile Include="Migrations\201806190600180_init_DB.Designer.cs">
       <DependentUpon>201806190600180_init_DB.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201806190927176_Validation.cs" />
+    <Compile Include="Migrations\201806190927176_Validation.Designer.cs">
+      <DependentUpon>201806190927176_Validation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806191056289_MediaLibrary_annotation.cs" />
+    <Compile Include="Migrations\201806191056289_MediaLibrary_annotation.Designer.cs">
+      <DependentUpon>201806191056289_MediaLibrary_annotation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806210446570_media-title-propperty.cs" />
+    <Compile Include="Migrations\201806210446570_media-title-propperty.Designer.cs">
+      <DependentUpon>201806210446570_media-title-propperty.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Context.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\AddViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-rtl.css" />
+    <Content Include="Content\bootstrap-rtl.min.css" />
+    <Content Include="Content\bootstrap-theme-rtl.css" />
+    <Content Include="Content\bootstrap-theme-rtl.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Custom.css" />
+    <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\font-awesome.min.css" />
     <Content Include="favicon.ico" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\Vazir\vazir.css" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\bootstrap-rtl.js" />
+    <Content Include="Scripts\bootstrap-rtl.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\Vazir\CHANGELOG.md" />
+    <Content Include="fonts\Vazir\Farsi-Digits-Without-Latin\Vazir-Bold-FD-WOL.eot" />
+    <Content Include="fonts\Vazir\Farsi-Digits-Without-Latin\Vazir-Bold-FD-WOL.ttf" />
+    <Content Include="fonts\Vazir\Farsi-Digits-Without-Latin\Vazir-Bold-FD-WOL.woff" />
+    <Content Include="fonts\Vazir\Farsi-Digits-Without-Latin\Vazir-Bold-FD-WOL.woff2" />
+    <Content Include="fonts\Vazir\Farsi-Digits-Without-Latin\Vazir-FD-WOL.eot" />
+    <Content Include="fonts\Vazir\Farsi-Digits-Without-Latin\Vazir-FD-WOL.ttf" />
+    <Content Include="fonts\Vazir\Farsi-Digits-Without-Latin\Vazir-FD-WOL.woff" />
+    <Content Include="fonts\Vazir\Farsi-Digits-Without-Latin\Vazir-FD-WOL.woff2" />
+    <Content Include="fonts\Vazir\Farsi-Digits-Without-Latin\Vazir-Light-FD-WOL.eot" />
+    <Content Include="fonts\Vazir\Farsi-Digits-Without-Latin\Vazir-Light-FD-WOL.ttf" />
+    <Content Include="fonts\Vazir\Farsi-Digits-Without-Latin\Vazir-Light-FD-WOL.woff" />
+    <Content Include="fonts\Vazir\Farsi-Digits-Without-Latin\Vazir-Light-FD-WOL.woff2" />
+    <Content Include="fonts\Vazir\Farsi-Digits-Without-Latin\Vazir-Medium-FD-WOL.eot" />
+    <Content Include="fonts\Vazir\Farsi-Digits-Without-Latin\Vazir-Medium-FD-WOL.ttf" />
+    <Content Include="fonts\Vazir\Farsi-Digits-Without-Latin\Vazir-Medium-FD-WOL.woff" />
+    <Content Include="fonts\Vazir\Farsi-Digits-Without-Latin\Vazir-Medium-FD-WOL.woff2" />
+    <Content Include="fonts\Vazir\Farsi-Digits-Without-Latin\Vazir-Thin-FD-WOL.eot" />
+    <Content Include="fonts\Vazir\Farsi-Digits-Without-Latin\Vazir-Thin-FD-WOL.ttf" />
+    <Content Include="fonts\Vazir\Farsi-Digits-Without-Latin\Vazir-Thin-FD-WOL.woff" />
+    <Content Include="fonts\Vazir\Farsi-Digits-Without-Latin\Vazir-Thin-FD-WOL.woff2" />
+    <Content Include="fonts\Vazir\Farsi-Digits\Vazir-Bold-FD.eot" />
+    <Content Include="fonts\Vazir\Farsi-Digits\Vazir-Bold-FD.ttf" />
+    <Content Include="fonts\Vazir\Farsi-Digits\Vazir-Bold-FD.woff" />
+    <Content Include="fonts\Vazir\Farsi-Digits\Vazir-Bold-FD.woff2" />
+    <Content Include="fonts\Vazir\Farsi-Digits\Vazir-FD.eot" />
+    <Content Include="fonts\Vazir\Farsi-Digits\Vazir-FD.ttf" />
+    <Content Include="fonts\Vazir\Farsi-Digits\Vazir-FD.woff" />
+    <Content Include="fonts\Vazir\Farsi-Digits\Vazir-FD.woff2" />
+    <Content Include="fonts\Vazir\Farsi-Digits\Vazir-Light-FD.eot" />
+    <Content Include="fonts\Vazir\Farsi-Digits\Vazir-Light-FD.ttf" />
+    <Content Include="fonts\Vazir\Farsi-Digits\Vazir-Light-FD.woff" />
+    <Content Include="fonts\Vazir\Farsi-Digits\Vazir-Light-FD.woff2" />
+    <Content Include="fonts\Vazir\Farsi-Digits\Vazir-Medium-FD.eot" />
+    <Content Include="fonts\Vazir\Farsi-Digits\Vazir-Medium-FD.ttf" />
+    <Content Include="fonts\Vazir\Farsi-Digits\Vazir-Medium-FD.woff" />
+    <Content Include="fonts\Vazir\Farsi-Digits\Vazir-Medium-FD.woff2" />
+    <Content Include="fonts\Vazir\Farsi-Digits\Vazir-Thin-FD.eot" />
+    <Content Include="fonts\Vazir\Farsi-Digits\Vazir-Thin-FD.ttf" />
+    <Content Include="fonts\Vazir\Farsi-Digits\Vazir-Thin-FD.woff" />
+    <Content Include="fonts\Vazir\Farsi-Digits\Vazir-Thin-FD.woff2" />
+    <Content Include="fonts\Vazir\LICENSE" />
+    <Content Include="fonts\Vazir\README.md" />
+    <Content Include="fonts\Vazir\Vazir-Bold.eot" />
+    <Content Include="fonts\Vazir\Vazir-Bold.ttf" />
+    <Content Include="fonts\Vazir\Vazir-Bold.woff" />
+    <Content Include="fonts\Vazir\Vazir-Bold.woff2" />
+    <Content Include="fonts\Vazir\Vazir-Light.eot" />
+    <Content Include="fonts\Vazir\Vazir-Light.ttf" />
+    <Content Include="fonts\Vazir\Vazir-Light.woff" />
+    <Content Include="fonts\Vazir\Vazir-Light.woff2" />
+    <Content Include="fonts\Vazir\Vazir-Medium.eot" />
+    <Content Include="fonts\Vazir\Vazir-Medium.ttf" />
+    <Content Include="fonts\Vazir\Vazir-Medium.woff" />
+    <Content Include="fonts\Vazir\Vazir-Medium.woff2" />
+    <Content Include="fonts\Vazir\Vazir-Thin.eot" />
+    <Content Include="fonts\Vazir\Vazir-Thin.ttf" />
+    <Content Include="fonts\Vazir\Vazir-Thin.woff" />
+    <Content Include="fonts\Vazir\Vazir-Thin.woff2" />
+    <Content Include="fonts\Vazir\Vazir.eot" />
+    <Content Include="fonts\Vazir\Vazir.ttf" />
+    <Content Include="fonts\Vazir\Vazir.woff" />
+    <Content Include="fonts\Vazir\Vazir.woff2" />
+    <Content Include="fonts\Vazir\Without-Latin\Vazir-Bold-WOL.eot" />
+    <Content Include="fonts\Vazir\Without-Latin\Vazir-Bold-WOL.ttf" />
+    <Content Include="fonts\Vazir\Without-Latin\Vazir-Bold-WOL.woff" />
+    <Content Include="fonts\Vazir\Without-Latin\Vazir-Bold-WOL.woff2" />
+    <Content Include="fonts\Vazir\Without-Latin\Vazir-Light-WOL.eot" />
+    <Content Include="fonts\Vazir\Without-Latin\Vazir-Light-WOL.ttf" />
+    <Content Include="fonts\Vazir\Without-Latin\Vazir-Light-WOL.woff" />
+    <Content Include="fonts\Vazir\Without-Latin\Vazir-Light-WOL.woff2" />
+    <Content Include="fonts\Vazir\Without-Latin\Vazir-Medium-WOL.eot" />
+    <Content Include="fonts\Vazir\Without-Latin\Vazir-Medium-WOL.ttf" />
+    <Content Include="fonts\Vazir\Without-Latin\Vazir-Medium-WOL.woff" />
+    <Content Include="fonts\Vazir\Without-Latin\Vazir-Medium-WOL.woff2" />
+    <Content Include="fonts\Vazir\Without-Latin\Vazir-Thin-WOL.eot" />
+    <Content Include="fonts\Vazir\Without-Latin\Vazir-Thin-WOL.ttf" />
+    <Content Include="fonts\Vazir\Without-Latin\Vazir-Thin-WOL.woff" />
+    <Content Include="fonts\Vazir\Without-Latin\Vazir-Thin-WOL.woff2" />
+    <Content Include="fonts\Vazir\Without-Latin\Vazir-WOL.eot" />
+    <Content Include="fonts\Vazir\Without-Latin\Vazir-WOL.ttf" />
+    <Content Include="fonts\Vazir\Without-Latin\Vazir-WOL.woff" />
+    <Content Include="fonts\Vazir\Without-Latin\Vazir-WOL.woff2" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="Scripts\jquery-1.10.2.js" />
-    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery-2.1.1-vsdoc.js" />
+    <Content Include="Scripts\common.js" />
+    <Content Include="Scripts\jquery-2.1.1.js" />
+    <Content Include="Scripts\jquery-2.1.1.min.js" />
+    <Content Include="Scripts\jquery-2.1.1.min.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\nugetexample.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Web.config" />
@@ -196,12 +315,15 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\File\Add.cshtml" />
+    <Content Include="Views\Shared\_PanelLayout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\images\" />
+    <Folder Include="Image\Thumbnail\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -214,7 +336,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\NewsSystem.Models\NewsSystem.Models.csproj">
@@ -225,6 +346,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201806190600180_init_DB.resx">
       <DependentUpon>201806190600180_init_DB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806190927176_Validation.resx">
+      <DependentUpon>201806190927176_Validation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806191056289_MediaLibrary_annotation.resx">
+      <DependentUpon>201806191056289_MediaLibrary_annotation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806210446570_media-title-propperty.resx">
+      <DependentUpon>201806210446570_media-title-propperty.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -1,0 +1,8 @@
+﻿@import url('../fonts/Vazir/vazir.css');
+@import url('font-awesome.css');
+
+body {
+    direction: rtl;
+    font-family: Vazir;
+    padding-bottom: 50px;
+}

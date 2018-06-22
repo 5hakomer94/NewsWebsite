@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace NewsSystem.Models
 {
+    [Table("EventTags", Schema = "Event")]
     public class EventTag
     {
         public int Id { get; set; }
