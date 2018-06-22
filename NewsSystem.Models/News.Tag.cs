@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace NewsSystem.Models
 {
-    [Table("Tags", Schema = "news")]
+    [Table("NewsTags", Schema = "News")]
     public class NewsTag
     {
         public int Id { get; set; }

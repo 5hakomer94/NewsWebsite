@@ -13,6 +13,7 @@ namespace NewsSystem.Models
         [Required(ErrorMessage = "لطفاً نام خود را وارد نمایید.")]
         public string Name { get; set; }
         [EmailAddress]
+        [RegularExpression(@"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$")]
         public string Email { get; set; }
         [Display(Name = "تاریخ ثبت")]
         [Required]

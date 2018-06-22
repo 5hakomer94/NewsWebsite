@@ -1,11 +1,11 @@
+using System;
+using System.Data.Entity;
+using System.Linq;
+using NewsSystem.Models;
+using System.Data.Entity.ModelConfiguration.Conventions;
+
 namespace NewsSystem.MVC.Models
 {
-    using System;
-    using System.Data.Entity;
-    using System.Linq;
-    using NewsSystem.Models;
-    using System.Data.Entity.ModelConfiguration.Conventions;
-
     public class Context : DbContext
     {
         public Context()

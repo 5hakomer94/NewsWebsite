@@ -12,22 +12,28 @@ namespace NewsSystem.Models
     public class MainUser
     {
         public int Id { get; set; }
-        [MaxLength(100) , Required(ErrorMessage = "username is required")]
+        [MaxLength(100)]
+        [Required(ErrorMessage = "این فیلد اجباری است.")]
         [Display(Name = "نام کاربری")]
         public string UserName { get; set; }
         [MaxLength(50)]
+        [Required(ErrorMessage = "لطفا نام خود را وارد نمایید.")]
         [Display(Name = "نام")]
         public string FirstName { get; set; }
         [MaxLength(50)]
+        [Required(ErrorMessage = "لطفا نام خانوادگی خود را وارد نمایید.")]
         [Display(Name = "نام خانوادگی")]
         public string LastName { get; set; }
-        [Required(ErrorMessage = "Email is required") , EmailAddress]
+        [EmailAddress]
+        [Required(ErrorMessage = "لطفا ایمیل خود را وارد نمایید.")]
         [Display(Name = "ایمیل")]
+        [RegularExpression(@"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$")]
         public string Email { get; set; }
-        [Required , StringLength(100, MinimumLength = 6) , DataType(DataType.Password)]
+        [StringLength(100, MinimumLength = 6) , DataType(DataType.Password)]
+        [Required(ErrorMessage = "این فیلد اجباری است.")]
         [Display(Name = "رمز عبور")]
         public string Password { get; set; }
-        [Required]
+        [Required(ErrorMessage = "این فیلد اجباری است.")]
         [Display(Name = "تلفن")]
         public int phone { get; set; }
         [Display(Name = "جنسیت")]
