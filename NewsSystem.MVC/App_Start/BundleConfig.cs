@@ -20,12 +20,14 @@ namespace NewsSystem.MVC
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/bootstrap.js",
+                      "~/Scripts/bootstrap-rtl.js",
                       "~/Scripts/respond.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
+                      "~/Content/bootstrap-rtl.css",
                       "~/Content/site.css"));
+            bundles.Add(new StyleBundle("~/Content/Events-News/css").Include(
+                      "~/Content/Events-News/_Layout-EventsArticles.css"));
         }
     }
 }

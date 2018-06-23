@@ -1,7 +1,17 @@
-﻿body {
+﻿@import url("/fonts/Vazir/vazir.css" );
+
+body {
+    font-family: Vazir;
     padding-top: 50px;
     padding-bottom: 20px;
 }
+
+    body * {
+        -webkit-transition: all 0.33s ease-in-out;
+        -o-transition: all 0.33s ease-in-out;
+        -moz-transition: all 0.33s ease-in-out;
+        transition: all 0.33s ease-in-out;
+    }
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
