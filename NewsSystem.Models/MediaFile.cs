@@ -18,8 +18,8 @@ namespace NewsSystem.Models
         public string Title { get; set; }
         [Display(Name = "انتخاب فایل")]
         public string FilePath { get; set; }
-        public DateTime CreatedDate { get; set; }
-        public DateTime LastModified { get; set; }
+        //public DateTime CreatedDate { get; set; }
+        //public DateTime LastModified { get; set; }
         //Relations - Navigation Properties
         public virtual MainUser User { get; set; }
         public int MediaLibraryId { get; set; }

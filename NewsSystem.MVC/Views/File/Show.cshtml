@@ -1,0 +1,66 @@
+﻿@model IEnumerable<NewsSystem.Models.MediaFile>
+
+@{
+    ViewBag.Title = "فهرست فایل ها";
+    Layout = "~/Views/Shared/_PanelLayout.cshtml";
+}
+
+<div class="panel panel-body" style="min-height:256px; padding-top: 150px;">
+
+    <div class="col-md-3"></div>
+    
+        <div class="media-content col-md-9 ">
+            <div class="attachments-browser " style="background-color: #eee">
+                <a href="@Url.Action("Add", "File" , new { id = "null" })" class="btn btn-primary  btn-sm">افزودن فایل جدید</a>
+                <form class="navbar-form navbar-left" role="search">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                        <button type="submit" class="btn btn-default fa fa-search form-control"></button>
+                    </div>
+                </form>
+            </div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>فایل ها</th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Title)
+                        </th>
+                        @*<th>
+                            @Html.DisplayNameFor(model => model.FilePath)
+                        </th>*@
+                        @*<th>
+                            @Html.DisplayNameFor(model => model.MediaLibraryId)
+                        </th>*@
+                        <th>عملیات</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                <img src="@item.FilePath" class="img-rounded" style="height:70px;" />
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Title)
+                            </td>
+                            @*<td>
+                                @Html.DisplayFor(modelItem => item.FilePath)
+                            </td>*@
+                            @*<td>
+                                @Html.DisplayFor(modelItem => item.MediaLibraryId)
+                            </td>*@
+                            <td>                                
+                                <a href="@Url.Action("Edit", "File" , new { id = "item.Id" })" class="fa fa-edit"></a> |
+                                <a href="@Url.Action("Show", "File" , new { id = "item.Id" })" class="fa fa-file"></a> |
+                                <a href="@Url.Action("Delete", "File" , new { id = "item.Id" })" class="fa fa-remove"></a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+        </div>
+</div>
+

@@ -1,7 +1,7 @@
 ﻿@model NewsSystem.MVC.ViewModels.AddViewModel
 
 @{
-    ViewBag.Title = "Add";
+    ViewBag.Title = "افزودن تصویر";
     Layout = "~/Views/Shared/_PanelLayout.cshtml";
 }
 
@@ -14,22 +14,22 @@
             {
                 @Html.ValidationSummary(true, null, new { @class = "text-danger" })
 
-                <div class="form-group">
+                @*<div class="form-group">
                     @Html.LabelFor(model => model.MediaLibraryId, new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
                         @Html.DropDownListFor(x => x.MediaLibraryId, null,
                                 new { @class = "form-control" })
 
-                        @*@Html.ValidationMessageFor(x => x.MediaLibraryId, null, new { @class = "text-danger" })*@
+                        @Html.ValidationMessageFor(x => x.MediaLibraryId, null, new { @class = "text-danger" })
                     </div>
-                </div>
+                </div>*@
 
                 <div class="form-group">
                     @Html.LabelFor(model => model.Title, new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
                         @Html.TextBoxFor(x => x.Title, new { @class = "form-control", placeholder = "عنوان" })
                         @Html.ValidationMessageFor(x => x.Title, null, new { @class = "text-danger" })
-                    </div>
+                    </div> 
                 </div>
                 <div class="form-group">
                     @Html.LabelFor(x => x.FilePath, new { @class = "control-label col-md-2" })
@@ -45,6 +45,9 @@
                 </div>
 
             }
+        </div>
+        <div class="col-md-4" style="width:300px; margin:20px; text-align: center">
+            @*<img src="@Model.FilePath" class="img-rounded" />*@
         </div>
     </div>
 

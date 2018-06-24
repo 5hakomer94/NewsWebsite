@@ -6,3 +6,54 @@ body {
     font-family: Vazir;
     padding-bottom: 50px;
 }
+.media-content .attachments-browser {
+    border: solid 2px #ccc;
+    height: 50px;
+    border-radius: 4px;
+}
+
+.media-content .attachments-browser a {
+    padding: 5px;
+    margin: 8px;
+}
+    
+.media-content .media-content-thumbnail {
+    min-height: 500px;
+    padding: 10px;
+    margin: 10px auto;
+}
+
+.media-content .media-content-thumbnail ul li {
+    position: relative;
+    float: right;
+    padding: 8px;
+    margin: 0;
+    color: #444;
+    cursor: pointer;
+    list-style: none;
+    text-align: center;
+    width: 150px;
+    height: 150px;
+    padding: 10px;
+}
+
+.media-content .media-content-thumbnail ul li img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin-top: 8px;
+    vertical-align: middle;
+    padding: 10px;
+}
+
+.media-content row .column {
+    float: left;
+    width: 20%;
+    padding: 10px;
+}
+
+.column img {
+    margin-top: 8px;
+    vertical-align: middle;
+    width: 100%;
+}

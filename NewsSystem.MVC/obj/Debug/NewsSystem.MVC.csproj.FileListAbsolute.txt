@@ -296,3 +296,4 @@ F:\Asp.net MVC\LastProject\NewsWebsite\NewsSystem.MVC\obj\Debug\NewsSystem.MVC.p
 F:\Asp.net MVC\LastProject\NewsWebsite\NewsSystem.MVC\obj\Debug\NewsSystem.MVC.Migrations.Validation.resources
 F:\Asp.net MVC\LastProject\NewsWebsite\NewsSystem.MVC\obj\Debug\NewsSystem.MVC.Migrations.MediaLibrary_annotation.resources
 F:\Asp.net MVC\LastProject\NewsWebsite\NewsSystem.MVC\obj\Debug\NewsSystem.MVC.Migrations.mediatitlepropperty.resources
+F:\Asp.net MVC\LastProject\NewsWebsite\NewsSystem.MVC\obj\Debug\NewsSystem.MVC.Migrations.Comment_Modified_Property.resources

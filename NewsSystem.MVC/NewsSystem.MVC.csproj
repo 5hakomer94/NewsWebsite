@@ -172,6 +172,10 @@
     <Compile Include="Migrations\201806210446570_media-title-propperty.Designer.cs">
       <DependentUpon>201806210446570_media-title-propperty.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201806230815527_Comment_Modified_Property.cs" />
+    <Compile Include="Migrations\201806230815527_Comment_Modified_Property.Designer.cs">
+      <DependentUpon>201806230815527_Comment_Modified_Property.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Context.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -187,6 +191,7 @@
     <Content Include="Content\Custom.css" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\images\alessandro_di_cicco_alice-wallpaper-1024x768.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -319,10 +324,10 @@
     <Content Include="Views\File\Add.cshtml" />
     <Content Include="Views\Shared\_PanelLayout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\File\Show.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\images\" />
     <Folder Include="Image\Thumbnail\" />
   </ItemGroup>
   <ItemGroup>
@@ -355,6 +360,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201806210446570_media-title-propperty.resx">
       <DependentUpon>201806210446570_media-title-propperty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806230815527_Comment_Modified_Property.resx">
+      <DependentUpon>201806230815527_Comment_Modified_Property.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

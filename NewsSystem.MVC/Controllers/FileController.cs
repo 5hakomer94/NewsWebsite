@@ -12,6 +12,12 @@ namespace NewsSystem.MVC.Controllers
 {
     public class FileController : Controller
     {
+        public ActionResult Show()
+        {
+            Context ctx = new Context();
+            return View(ctx.Files.ToList());
+        }
+
         public ActionResult Add()
         {
             Context ctx = new Context();
@@ -55,11 +61,12 @@ namespace NewsSystem.MVC.Controllers
                 ctx.SaveChanges();
 
                 TempData["Message"] = "ثبت با موفقیت انجام شد.";
-                //return RedirectToAction("Add", "File");
-                return View();
+                return RedirectToAction("Show", "File");
+                //return View();
             }
 
             return View(addModel);
         }
+
     }
 }
